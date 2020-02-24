@@ -107,4 +107,5 @@ dist
 .vscode-test
 
 package-lock.json
-videos 
+uploads
+.DS_Store
