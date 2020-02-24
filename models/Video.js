@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-mongoose.set('useUnifiedTopology', true);
 
 const VideoSchema = new mongoose.Schema({
   fileUrl: {
