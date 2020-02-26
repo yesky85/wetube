@@ -2,10 +2,11 @@ doctype html
 html
     head
         script(src="https://kit.fontawesome.com/fbacb88a39.js")
-
         title #{pageTitle} | #{siteName}
+        link(rel="stylesheet", href="/static/styles.css")
     body
         include ../partials/header
         main
             block content
         include ../partials/footer
+        script(src="/static/main.js")
