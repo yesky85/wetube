@@ -433,7 +433,7 @@ input[type='submit'] {
     color: white;
     position: absolute;
     z-index: 9;
-    bottom: 5px;
+    bottom: 0px;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px;
@@ -441,6 +441,7 @@ input[type='submit'] {
     grid-template-columns: repeat(3, 1fr);
     font-size: 16px; }
     .videoPlayer .videoPlayer__controls .videoPlayer__column:first-child {
+      position: relative;
       display: -webkit-box;
       display: -webkit-flex;
       display: -moz-box;
@@ -451,8 +452,31 @@ input[type='submit'] {
          -moz-box-align: center;
           -ms-flex-align: center;
               align-items: center; }
-      .videoPlayer .videoPlayer__controls .videoPlayer__column:first-child > span:first-child {
-        margin-right: 10px; }
+      .videoPlayer .videoPlayer__controls .videoPlayer__column:first-child #jsVolumeButton {
+        display: block;
+        width: 35px; }
+        .videoPlayer .videoPlayer__controls .videoPlayer__column:first-child #jsVolumeButton:hover ~ .videoPlayer__volume {
+          visibility: visible;
+          opacity: 1; }
+      .videoPlayer .videoPlayer__controls .videoPlayer__column:first-child .videoPlayer__volume {
+        visibility: hidden;
+        opacity: 0;
+        -webkit-transition: all 1s linear;
+        -o-transition: all 1s linear;
+        -moz-transition: all 1s linear;
+        transition: all 1s linear;
+        position: absolute;
+        bottom: 35px;
+        left: 0;
+        -webkit-appearance: slider-vertical;
+           -moz-appearance: slider-vertical;
+                appearance: slider-vertical;
+        height: 80px;
+        width: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.5); }
+        .videoPlayer .videoPlayer__controls .videoPlayer__column:first-child .videoPlayer__volume:hover {
+          visibility: visible;
+          opacity: 1; }
     .videoPlayer .videoPlayer__controls .videoPlayer__column:last-child {
       justify-self: end; }
     .videoPlayer .videoPlayer__controls .videoPlayer__column:nth-child(2) {
