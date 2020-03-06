@@ -59,7 +59,7 @@ const formatDate = seconds => {
 };
 
 function setCurrentTime() {
-  currentTime.innerHTML = formatDate(videoPlayer.currentTime);
+  currentTime.innerHTML = formatDate(Math.floor(videoPlayer.currentTime));
 }
 
 function setTotalTIme() {
@@ -68,11 +68,17 @@ function setTotalTIme() {
   setInterval(setCurrentTime, 1000);
 }
 
+function handleEnded() {
+  videoPlayer.currentTIme = 0;
+  playBtn.innerHTML = '<i class="fas fa-play"></i>';
+}
+
 function init() {
   playBtn.addEventListener('click', handlePlayClick);
   volumeBtn.addEventListener('click', handleVolumeClick);
   fullScreenBtn.addEventListener('click', handleFullScreenClick);
   videoPlayer.addEventListener('loadedmetadata', setTotalTIme);
+  videoPlayer.addEventListener('ended', handleEnded);
 }
 
 if (videoContainer) {
