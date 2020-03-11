@@ -12,14 +12,14 @@ const s3 = new aws.S3({
 const multerVideo = multer({
   storage: multerS3({
     s3,
-    bucket: 'wetube/videos',
+    bucket: 'wetubes/videos',
     acl: 'public-read',
   }),
 });
 const multerAvatar = multer({
   storage: multerS3({
     s3,
-    bucket: 'wetube/avatars',
+    bucket: 'wetubes/avatars',
     acl: 'public-read',
   }),
 });
