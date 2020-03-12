@@ -9,12 +9,28 @@ const currentTime = document.getElementById('currentTime');
 const totalTime = document.getElementById('totalTime');
 const volumeRange = document.getElementById('jsVolume');
 
+const views = document.getElementById('jsvideoViews');
+
 const registerView = () => {
   const videoId = window.location.href.split('/videos/')[1];
-  fetch(`/api/${videoId}/view`, {
-    method: 'POST',
-  });
+  const xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      if (this.responseText === 1)
+        views.innerHTML = `${this.responseText} view`;
+      else views.innerHTML = `${this.responseText} views`;
+    }
+  };
+  xhttp.open('POST', `/api/${videoId}/view`, true);
+  xhttp.send();
 };
+
+// const registerView = () => {
+//   const videoId = window.location.href.split('/videos/')[1];
+//   fetch(`/api/${videoId}/view`, {
+//     method: 'POST',
+//   });
+// };
 
 function handlePlayClick() {
   if (videoPlayer.paused) {
